@@ -3,7 +3,7 @@ name: Build and Deploy to EKS
 on:
   push:
     branches: [main]
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,8 +15,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-access-key-id: AKIAU6GDXKB64EMQTUQH
-        aws-secret-access-key: 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
+        aws-access-key-id: ${{ secrets.Access_key }}
+        aws-secret-access-key: ${{ secrets.Secret_access_key }}
         aws-region: us-east-1
 
     - name: Login to Amazon ECR
